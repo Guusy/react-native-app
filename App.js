@@ -5,12 +5,14 @@
  */
 
 import React, { Component } from 'react';
+import Home from './src/screens/containers/Home';
+import Header from './src/sections/components/Header';
+
 import {
-  Platform,
-  StyleSheet,
   Text,
-  View,
-  Image
+  Image,
+  StyleSheet,
+  Platform
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -24,23 +26,17 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-      <Image 
-      source={require('./assets/logo.png')}
-      style={{
-        width:300,height:80
-      }}
-      />
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <Home>
+        <Header>
+          <Text>
+            Extra title
+            </Text>
+        </Header>
+     
+      <Text>Header </Text>
+      <Text>Buscador </Text>
+      <Text>Categorias </Text>  
+    </Home> 
     );
   }
 }
