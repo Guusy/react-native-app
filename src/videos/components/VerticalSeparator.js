@@ -13,10 +13,6 @@ const VerticalSeparator = (props) => {
         borderTopColor: (props.color) ? props.color : '#eaeaea'
       }
     ]}>
-      <Text style={styles.text}>
-        Esto es un separador
-      </Text>
-      
     </View>
   )
 
