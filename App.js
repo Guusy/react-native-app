@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import Home from './src/screens/containers/Home';
 import Header from './src/sections/components/Header';
-
+import SuggestionList from './src/videos/containers/SuggestionList';
 import {
   Text,
   Image,
@@ -36,6 +36,7 @@ export default class App extends Component<Props> {
       <Text>Header </Text>
       <Text>Buscador </Text>
       <Text>Categorias </Text>  
+      <SuggestionList/>
     </Home> 
     );
   }
