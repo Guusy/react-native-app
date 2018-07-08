@@ -17,7 +17,7 @@ const Suggestion = (props) => {
           }}
         />
         <View style={styles.genre}>
-          <Text style={styles.genreText} > {props.genres[0]}</Text>
+          <Text style={styles.genreText} > {props.genres && props.genres[0]}</Text>
         </View>
         </View>
         <View style={styles.right}>

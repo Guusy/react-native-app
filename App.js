@@ -15,7 +15,7 @@ import {
   Platform
 } from 'react-native';
 import API from './utils/api';
-
+import CategoryList from './src/videos/containers/CategoryList';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -26,13 +26,17 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
   state ={
-    suggestionList:[]
+    suggestionList:[],
+    categoryList:[]
   }
  async componentDidMount(){
     const movies = await API.getSuggestion(10)
+    const categories = await API.getMovies();
     console.log(movies);
+    console.log(categories);
     this.setState({
-      suggestionList:movies
+      suggestionList:movies,
+      categoryList:categories
     })
   }
   render() {
@@ -47,9 +51,13 @@ export default class App extends Component<Props> {
       <Text>Header </Text>
       <Text>Buscador </Text>
       <Text>Categorias </Text>  
+      <CategoryList
+      list={this.state.categoryList}
+      />
       <SuggestionList
       list={this.state.suggestionList}
       />
+     
     </Home> 
     );
   }
