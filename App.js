@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import Home from './src/screens/containers/Home';
 import Header from './src/sections/components/Header';
 import SuggestionList from './src/videos/containers/SuggestionList';
+import Player from './src/player/container/Player';
 import {
   Text,
   Image,
@@ -17,14 +18,13 @@ import {
 } from 'react-native';
 import API from './utils/api';
 import CategoryList from './src/videos/containers/CategoryList';
-import Video from 'react-native-video';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
   android: 'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
-
+import Video from 'react-native-video'
 type Props = {};
 export default class App extends Component<Props> {
   state ={
@@ -49,28 +49,11 @@ export default class App extends Component<Props> {
             Extra title
             </Text>
         </Header>
-        <View style={{
-          flex:1,
-          height:100
-        }}>
-        <Video
-        source={{uri: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'}}
-        onBuffer={(b)=>console.log("buffering",b)}
-        style={{
-          position:'absolute',
-          left:0,
-          right:0,
-          bottom:0,
-          top:0,
-        }}
-        paused={false}
-        resizeMode="contain"
-        />
-        </View>
-        
+
       <Text>Header </Text>
       <Text>Buscador </Text>
       <Text>Categorias </Text>  
+      <Player/>
       <CategoryList
       list={this.state.categoryList}
       />
