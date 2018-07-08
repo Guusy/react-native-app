@@ -14,6 +14,7 @@ import {
   StyleSheet,
   Platform
 } from 'react-native';
+import API from './utils/api';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -24,6 +25,16 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  state ={
+    suggestionList:[]
+  }
+ async componentDidMount(){
+    const movies = await API.getSuggestion(10)
+    console.log(movies);
+    this.setState({
+      suggestionList:movies
+    })
+  }
   render() {
     return (
       <Home>
@@ -36,7 +47,9 @@ export default class App extends Component<Props> {
       <Text>Header </Text>
       <Text>Buscador </Text>
       <Text>Categorias </Text>  
-      <SuggestionList/>
+      <SuggestionList
+      list={this.state.suggestionList}
+      />
     </Home> 
     );
   }
